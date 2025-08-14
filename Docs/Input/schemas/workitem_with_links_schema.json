@@ -1,0 +1,380 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/workitem-with-links.schema.json",
+  "title": "Polarion Work Item with Links Schema",
+  "description": "Schema for Polarion work items with parent-child relationships and linking structure. IMPORTANT: Every requirement MUST have at least one link with role 'has_parent' that points to its chapter/subchapter heading. This creates the hierarchical document structure in Polarion.",
+  "type": "object",
+  "required": ["work_item", "links", "children"],
+  "properties": {
+    "work_item": {
+      "$ref": "#/definitions/workItemDetails"
+    },
+    "links": {
+      "type": "array",
+      "description": "Links to other work items with relationship roles. CRITICAL: Must contain at least one link with role='has_parent' pointing to the appropriate heading work item (e.g., Python/FCTS-9189). This establishes the document hierarchy in Polarion.",
+      "minItems": 1,
+      "items": {
+        "$ref": "#/definitions/link"
+      }
+    },
+    "children": {
+      "type": "array",
+      "description": "Child work items nested under this parent",
+      "items": {
+        "$ref": "#/definitions/childWorkItem"
+      }
+    }
+  },
+  "definitions": {
+    "workItemDetails": {
+      "type": "object",
+      "description": "Detailed work item information",
+      "required": ["type", "title", "description", "status", "severity", "priority", "relationships"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "Type of work item",
+          "enum": ["requirement", "task", "testcase", "heading", "defect", "change_request"],
+          "examples": ["requirement"]
+        },
+        "title": {
+          "type": "string",
+          "description": "Work item title with optional timestamp placeholder",
+          "minLength": 1,
+          "examples": [
+            "Primary Brake Activation 20250814_221321",
+            "Parent Requirement - MCP Framework Integration {timestamp}"
+          ]
+        },
+        "description": {
+          "type": "object",
+          "description": "Rich text description of the work item",
+          "required": ["type", "value"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "description": "Content type",
+              "enum": ["text/html", "text/plain", "text/markdown"],
+              "default": "text/html"
+            },
+            "value": {
+              "type": "string",
+              "description": "HTML/text content of the description",
+              "minLength": 1,
+              "examples": [
+                "<p>The brake system shall activate within 100ms when the brake pedal is pressed with a force greater than 20N</p>",
+                "<h2>MCP Framework Integration Master Requirement</h2><p>This is the parent requirement for all MCP integration tasks.</p>"
+              ]
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "description": "Work item status",
+          "enum": ["draft", "in_progress", "in_review", "approved", "implemented", "verified", "done", "rejected"],
+          "default": "draft"
+        },
+        "severity": {
+          "type": "string",
+          "description": "Requirement severity/importance level",
+          "enum": ["safety_critical", "must_have", "should_have", "could_have", "nice_to_have"],
+          "examples": ["must_have", "safety_critical"]
+        },
+        "priority": {
+          "type": "string",
+          "description": "Work item priority",
+          "enum": ["critical", "high", "medium", "low"],
+          "examples": ["high", "medium"]
+        },
+        "relationships": {
+          "type": "object",
+          "description": "Relationships to modules/documents",
+          "required": ["module"],
+          "properties": {
+            "module": {
+              "type": "object",
+              "description": "Module/document this work item belongs to",
+              "required": ["data"],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": ["documents", "modules"],
+                      "default": "documents"
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "Document/module identifier in Polarion",
+                      "pattern": "^[A-Za-z]+/.+",
+                      "examples": ["Python/_default/Functional Concept - Template"]
+                    }
+                  }
+                }
+              }
+            },
+            "assignee": {
+              "type": "object",
+              "description": "Optional assignee for the work item",
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": ["users"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "description": "User ID"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "custom_fields": {
+          "type": "object",
+          "description": "Optional custom fields",
+          "additionalProperties": true
+        },
+        "due_date": {
+          "type": "string",
+          "description": "Optional due date in ISO format",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "estimated_time": {
+          "type": "number",
+          "description": "Optional estimated time in hours",
+          "minimum": 0
+        }
+      }
+    },
+    "link": {
+      "type": "object",
+      "description": "Link to another work item with relationship role",
+      "required": ["target_id", "role", "description"],
+      "properties": {
+        "target_id": {
+          "type": "string",
+          "description": "Target work item ID",
+          "pattern": "^[A-Za-z]+/[A-Z]+-\\d+$",
+          "examples": ["Python/FCTS-9189", "Python/PYTH-9397", "Python/FCTS-9214"]
+        },
+        "role": {
+          "type": "string",
+          "description": "Type of relationship",
+          "enum": [
+            "has_parent",
+            "has_child",
+            "depends_on",
+            "blocks",
+            "relates_to",
+            "verifies",
+            "verified_by",
+            "duplicates",
+            "refines",
+            "refined_by",
+            "implements",
+            "implemented_by",
+            "tests",
+            "tested_by"
+          ],
+          "examples": ["has_parent", "relates_to", "verifies"]
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the link",
+          "minLength": 1,
+          "examples": [
+            "Links to 1.3 Summary of the Function",
+            "Links to main document header",
+            "Related to Functional Safety Requirements",
+            "Depends on API validation completion"
+          ]
+        },
+        "suspect": {
+          "type": "boolean",
+          "description": "Optional flag indicating if the link is suspect/needs review",
+          "default": false
+        }
+      }
+    },
+    "childWorkItem": {
+      "type": "object",
+      "description": "Child work item nested under parent",
+      "required": ["type", "title", "description", "status", "severity", "priority", "relationships"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "enum": ["requirement", "task", "testcase", "heading", "defect", "change_request"],
+          "examples": ["requirement"]
+        },
+        "title": {
+          "type": "string",
+          "minLength": 1,
+          "examples": ["Child 1: Proto-Server Development {timestamp}"]
+        },
+        "description": {
+          "type": "object",
+          "required": ["type", "value"],
+          "properties": {
+            "type": {
+              "type": "string",
+              "enum": ["text/html", "text/plain", "text/markdown"],
+              "default": "text/html"
+            },
+            "value": {
+              "type": "string",
+              "minLength": 1
+            }
+          }
+        },
+        "status": {
+          "type": "string",
+          "enum": ["draft", "in_progress", "in_review", "approved", "implemented", "verified", "done", "rejected"],
+          "default": "draft"
+        },
+        "severity": {
+          "type": "string",
+          "enum": ["safety_critical", "must_have", "should_have", "could_have", "nice_to_have"]
+        },
+        "priority": {
+          "type": "string",
+          "enum": ["critical", "high", "medium", "low"]
+        },
+        "relationships": {
+          "type": "object",
+          "required": ["module"],
+          "properties": {
+            "module": {
+              "type": "object",
+              "required": ["data"],
+              "properties": {
+                "data": {
+                  "type": "object",
+                  "required": ["type", "id"],
+                  "properties": {
+                    "type": {
+                      "type": "string",
+                      "enum": ["documents", "modules"]
+                    },
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[A-Za-z]+/.+"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "links": {
+          "type": "array",
+          "description": "Optional links for child items",
+          "items": {
+            "$ref": "#/definitions/link"
+          }
+        },
+        "custom_fields": {
+          "type": "object",
+          "additionalProperties": true
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Primary Brake Activation 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall activate within 100ms when the brake pedal is pressed with a force greater than 20N</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9189",
+          "role": "has_parent",
+          "description": "Links to 1.3 Summary of the Function"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Parent Requirement - MCP Framework Integration {timestamp}",
+        "description": {
+          "type": "text/html",
+          "value": "<h2>MCP Framework Integration Master Requirement</h2><p>This is the parent requirement for all MCP integration tasks.</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/PYTH-9397",
+          "role": "has_parent",
+          "description": "Links to main document header"
+        },
+        {
+          "target_id": "Python/PYTH-1234",
+          "role": "depends_on",
+          "description": "Depends on API validation completion"
+        },
+        {
+          "target_id": "Python/PYTH-5678",
+          "role": "relates_to",
+          "description": "Related to Mock Server implementation"
+        }
+      ],
+      "children": [
+        {
+          "type": "requirement",
+          "title": "Child 1: Proto-Server Development {timestamp}",
+          "description": {
+            "type": "text/html",
+            "value": "<p>Develop Proto-Server component with validated methods.</p>"
+          },
+          "status": "draft",
+          "severity": "must_have",
+          "priority": "high",
+          "relationships": {
+            "module": {
+              "data": {
+                "type": "documents",
+                "id": "Python/_default/Functional Concept - Template"
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "additionalProperties": false
+}
