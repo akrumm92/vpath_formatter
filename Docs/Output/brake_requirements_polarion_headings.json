@@ -1,0 +1,1185 @@
+{
+  "work_items": [
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Primary Brake Activation 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall activate within 100ms when the brake pedal is pressed with a force greater than 20N</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9189",
+          "role": "has_parent",
+          "description": "Links to 1.3 Summary of the Function"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Brake Force Distribution 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The system shall distribute braking force between front and rear axles in a 60:40 ratio under normal conditions</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9189",
+          "role": "has_parent",
+          "description": "Links to 1.3 Summary of the Function"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Brake Release 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall fully release within 200ms after the brake pedal is released</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9189",
+          "role": "has_parent",
+          "description": "Links to 1.3 Summary of the Function"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "ABS Activation 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The Anti-lock Braking System shall prevent wheel lockup by modulating brake pressure at 15Hz when slip ratio exceeds 20%</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9192",
+          "role": "has_parent",
+          "description": "Links to 1.4.1 Intended Use"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Emergency Brake Assist 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The system shall provide maximum braking force when emergency braking is detected through pedal velocity exceeding 200mm/s</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9192",
+          "role": "has_parent",
+          "description": "Links to 1.4.1 Intended Use"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Stopping Distance Performance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall achieve a stopping distance of less than 40m from 100km/h on dry asphalt surface</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9194",
+          "role": "has_parent",
+          "description": "Links to 1.4.2 Assumptions"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Maximum Deceleration 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall provide a maximum deceleration of 1.2g on dry road surfaces</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9194",
+          "role": "has_parent",
+          "description": "Links to 1.4.2 Assumptions"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Brake Response Time 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The time from brake pedal input to initial brake force application shall not exceed 150ms</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9194",
+          "role": "has_parent",
+          "description": "Links to 1.4.2 Assumptions"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Brake Fade Resistance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall maintain at least 80% efficiency after 10 consecutive stops from 100km/h</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9194",
+          "role": "has_parent",
+          "description": "Links to 1.4.2 Assumptions"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Wet Braking Performance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall achieve 70% of dry braking performance within 2 seconds of water exposure</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9194",
+          "role": "has_parent",
+          "description": "Links to 1.4.2 Assumptions"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "ECU Communication 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall communicate with the vehicle ECU via CAN bus at 500kbps with maximum 10ms latency</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9199",
+          "role": "has_parent",
+          "description": "Links to 2.1 Context & External Interfaces of the Function"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Diagnostic Interface 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall provide OBD-II compliant diagnostic interface for fault code reading and system status</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9199",
+          "role": "has_parent",
+          "description": "Links to 2.1 Context & External Interfaces of the Function"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Stability Control Integration 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall interface with Electronic Stability Control to enable individual wheel braking</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9199",
+          "role": "has_parent",
+          "description": "Links to 2.1 Context & External Interfaces of the Function"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Traction Control Interface 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The system shall accept brake force requests from the Traction Control System with 5ms response time</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9199",
+          "role": "has_parent",
+          "description": "Links to 2.1 Context & External Interfaces of the Function"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Sensor Integration 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The system shall interface with wheel speed sensors sampling at minimum 100Hz per wheel</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9199",
+          "role": "has_parent",
+          "description": "Links to 2.1 Context & External Interfaces of the Function"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Parking Brake Independence 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The parking brake shall operate independently of the main hydraulic brake system</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9201",
+          "role": "has_parent",
+          "description": "Links to 2.2 Sub-Functions"
+        },
+        {
+          "target_id": "Python/FCTS-9214",
+          "role": "relates_to",
+          "description": "Related to Functional Safety Requirements"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Brake Fluid Level Monitoring 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The system shall continuously monitor brake fluid level and alert when level drops below 80% capacity</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9201",
+          "role": "has_parent",
+          "description": "Links to 2.2 Sub-Functions"
+        },
+        {
+          "target_id": "Python/FCTS-9214",
+          "role": "relates_to",
+          "description": "Related to Functional Safety Requirements"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Temperature Monitoring 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall monitor brake disc temperature and warn when temperature exceeds 700°C</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9201",
+          "role": "has_parent",
+          "description": "Links to 2.2 Sub-Functions"
+        },
+        {
+          "target_id": "Python/FCTS-9214",
+          "role": "relates_to",
+          "description": "Related to Functional Safety Requirements"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Operating Temperature Range 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall operate normally in ambient temperatures from -40°C to +85°C</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9205",
+          "role": "has_parent",
+          "description": "Links to 3.1 Operation"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Humidity Resistance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system components shall withstand 95% relative humidity without performance degradation</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9205",
+          "role": "has_parent",
+          "description": "Links to 3.1 Operation"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Salt Spray Resistance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>Brake components shall resist corrosion after 500 hours of salt spray testing per ISO 9227</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9205",
+          "role": "has_parent",
+          "description": "Links to 3.1 Operation"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Water Ingress Protection 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>Electronic brake components shall meet IP67 protection rating against water and dust ingress</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9205",
+          "role": "has_parent",
+          "description": "Links to 3.1 Operation"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Vibration Resistance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall withstand vibrations up to 30g acceleration without component failure</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9205",
+          "role": "has_parent",
+          "description": "Links to 3.1 Operation"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "EMC Compliance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall comply with ECE R10 electromagnetic compatibility requirements</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9208",
+          "role": "has_parent",
+          "description": "Links to 3.2 Manufacturing"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Material Compliance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>All brake system materials shall comply with REACH and RoHS directives</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9208",
+          "role": "has_parent",
+          "description": "Links to 3.2 Manufacturing"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Brake Pad Wear Indicator 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The system shall provide warning when brake pad thickness reaches 3mm remaining material</p>"
+        },
+        "status": "draft",
+        "severity": "could_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9210",
+          "role": "has_parent",
+          "description": "Links to 3.4 Service & Maintenance"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Service Interval 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall require scheduled maintenance no more frequently than every 30,000km</p>"
+        },
+        "status": "draft",
+        "severity": "could_have",
+        "priority": "low",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9210",
+          "role": "has_parent",
+          "description": "Links to 3.4 Service & Maintenance"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Brake Fluid Replacement 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The system shall indicate brake fluid replacement requirement every 2 years or 40,000km</p>"
+        },
+        "status": "draft",
+        "severity": "could_have",
+        "priority": "low",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9210",
+          "role": "has_parent",
+          "description": "Links to 3.4 Service & Maintenance"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Self-Diagnostic Capability 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall perform self-diagnostics on startup and store last 50 fault codes</p>"
+        },
+        "status": "draft",
+        "severity": "could_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9210",
+          "role": "has_parent",
+          "description": "Links to 3.4 Service & Maintenance"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Component Accessibility 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>All serviceable brake components shall be accessible without removing other vehicle systems</p>"
+        },
+        "status": "draft",
+        "severity": "could_have",
+        "priority": "low",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9210",
+          "role": "has_parent",
+          "description": "Links to 3.4 Service & Maintenance"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Brake Performance Test 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall pass all performance tests defined in ISO 21994 test procedures</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9210",
+          "role": "has_parent",
+          "description": "Links to 3.4 Service & Maintenance"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Endurance Testing 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall complete 200,000 brake applications without failure in bench testing</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9210",
+          "role": "has_parent",
+          "description": "Links to 3.4 Service & Maintenance"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Environmental Testing 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall pass all environmental tests per ISO 16750 automotive standards</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9210",
+          "role": "has_parent",
+          "description": "Links to 3.4 Service & Maintenance"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "HIL Testing Coverage 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>Hardware-in-Loop testing shall cover 95% of brake system failure modes</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "medium",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9210",
+          "role": "has_parent",
+          "description": "Links to 3.4 Service & Maintenance"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Field Testing 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall accumulate 100,000km of field testing without critical failures</p>"
+        },
+        "status": "draft",
+        "severity": "should_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9210",
+          "role": "has_parent",
+          "description": "Links to 3.4 Service & Maintenance"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Dual Circuit Design 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall implement independent dual hydraulic circuits to ensure 50% braking capacity in case of single circuit failure</p>"
+        },
+        "status": "draft",
+        "severity": "safety_critical",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9214",
+          "role": "has_parent",
+          "description": "Links to 4.1 Functional Safety Requirements"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "Brake Failure Warning 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The system shall provide visual and audible warning within 500ms of detecting brake system failure or degradation</p>"
+        },
+        "status": "draft",
+        "severity": "safety_critical",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9214",
+          "role": "has_parent",
+          "description": "Links to 4.1 Functional Safety Requirements"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "ECE R13 Compliance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall comply with ECE Regulation 13 for brake performance requirements</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9214",
+          "role": "has_parent",
+          "description": "Links to 4.1 Functional Safety Requirements"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "FMVSS 135 Compliance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>The brake system shall meet FMVSS 135 requirements for passenger vehicle brake systems</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9214",
+          "role": "has_parent",
+          "description": "Links to 4.1 Functional Safety Requirements"
+        }
+      ],
+      "children": []
+    },
+    {
+      "work_item": {
+        "type": "requirement",
+        "title": "ISO 26262 Compliance 20250814_221321",
+        "description": {
+          "type": "text/html",
+          "value": "<p>Electronic brake control systems shall be developed according to ISO 26262 ASIL-D requirements</p>"
+        },
+        "status": "draft",
+        "severity": "must_have",
+        "priority": "high",
+        "relationships": {
+          "module": {
+            "data": {
+              "type": "documents",
+              "id": "Python/_default/Functional Concept - Template"
+            }
+          }
+        }
+      },
+      "links": [
+        {
+          "target_id": "Python/FCTS-9214",
+          "role": "has_parent",
+          "description": "Links to 4.1 Functional Safety Requirements"
+        }
+      ],
+      "children": []
+    }
+  ],
+  "metadata": {
+    "total_items": 40,
+    "document_id": "Python/_default/Functional Concept - Template",
+    "conversion_timestamp": "20250814_221321",
+    "note": "Each requirement links to its chapter/subchapter heading via has_parent"
+  }
+}

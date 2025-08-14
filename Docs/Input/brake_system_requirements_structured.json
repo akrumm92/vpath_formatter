@@ -1,0 +1,388 @@
+{
+  "document": {
+    "id": "Python/_default/Functional Concept - Brake System",
+    "title": "Functional Concept - Brake System",
+    "project": "Python",
+    "space": "_default",
+    "type": "Functional Concept",
+    "version": "1.0",
+    "created": "2025-08-14",
+    "chapters": [
+      {
+        "heading": "Introduction",
+        "heading_id": "Python/FCTS-9184",
+        "outlineNumber": "1",
+        "description": "Introduction to the brake system functional concept",
+        "subchapters": [
+          {
+            "heading": "Summary of the Function",
+            "heading_id": "Python/FCTS-9189",
+            "outlineNumber": "1.3",
+            "workitems": [
+              {
+                "id": "BR-FUN-001",
+                "title": "Primary Brake Activation",
+                "description": "The brake system shall activate within 100ms when the brake pedal is pressed with a force greater than 20N",
+                "category": "Functional",
+                "priority": "High"
+              },
+              {
+                "id": "BR-FUN-002",
+                "title": "Brake Force Distribution",
+                "description": "The system shall distribute braking force between front and rear axles in a 60:40 ratio under normal conditions",
+                "category": "Functional",
+                "priority": "High"
+              },
+              {
+                "id": "BR-FUN-005",
+                "title": "Brake Release",
+                "description": "The brake system shall fully release within 200ms after the brake pedal is released",
+                "category": "Functional",
+                "priority": "Medium"
+              }
+            ]
+          },
+          {
+            "heading": "Intended Use",
+            "heading_id": "Python/FCTS-9192",
+            "outlineNumber": "1.4.1",
+            "workitems": [
+              {
+                "id": "BR-FUN-003",
+                "title": "ABS Activation",
+                "description": "The Anti-lock Braking System shall prevent wheel lockup by modulating brake pressure at 15Hz when slip ratio exceeds 20%",
+                "category": "Functional",
+                "priority": "High"
+              },
+              {
+                "id": "BR-FUN-004",
+                "title": "Emergency Brake Assist",
+                "description": "The system shall provide maximum braking force when emergency braking is detected through pedal velocity exceeding 200mm/s",
+                "category": "Functional",
+                "priority": "High"
+              }
+            ]
+          },
+          {
+            "heading": "Assumptions",
+            "heading_id": "Python/FCTS-9194",
+            "outlineNumber": "1.4.2",
+            "workitems": [
+              {
+                "id": "BR-PERF-001",
+                "title": "Stopping Distance Performance",
+                "description": "The brake system shall achieve a stopping distance of less than 40m from 100km/h on dry asphalt surface",
+                "category": "Performance",
+                "priority": "High"
+              },
+              {
+                "id": "BR-PERF-003",
+                "title": "Maximum Deceleration",
+                "description": "The brake system shall provide a maximum deceleration of 1.2g on dry road surfaces",
+                "category": "Performance",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-PERF-002",
+                "title": "Brake Response Time",
+                "description": "The time from brake pedal input to initial brake force application shall not exceed 150ms",
+                "category": "Performance",
+                "priority": "High"
+              },
+              {
+                "id": "BR-PERF-004",
+                "title": "Brake Fade Resistance",
+                "description": "The brake system shall maintain at least 80% efficiency after 10 consecutive stops from 100km/h",
+                "category": "Performance",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-PERF-005",
+                "title": "Wet Braking Performance",
+                "description": "The brake system shall achieve 70% of dry braking performance within 2 seconds of water exposure",
+                "category": "Performance",
+                "priority": "High"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Functional Architecture",
+        "heading_id": "Python/FCTS-9198",
+        "outlineNumber": "2",
+        "description": "Functional architecture of the brake system",
+        "subchapters": [
+          {
+            "heading": "Context & External Interfaces of the Function",
+            "heading_id": "Python/FCTS-9199",
+            "outlineNumber": "2.1",
+            "workitems": [
+              {
+                "id": "BR-INT-001",
+                "title": "ECU Communication",
+                "description": "The brake system shall communicate with the vehicle ECU via CAN bus at 500kbps with maximum 10ms latency",
+                "category": "Interface",
+                "priority": "High"
+              },
+              {
+                "id": "BR-INT-004",
+                "title": "Diagnostic Interface",
+                "description": "The brake system shall provide OBD-II compliant diagnostic interface for fault code reading and system status",
+                "category": "Interface",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-INT-002",
+                "title": "Stability Control Integration",
+                "description": "The brake system shall interface with Electronic Stability Control to enable individual wheel braking",
+                "category": "Interface",
+                "priority": "High"
+              },
+              {
+                "id": "BR-INT-003",
+                "title": "Traction Control Interface",
+                "description": "The system shall accept brake force requests from the Traction Control System with 5ms response time",
+                "category": "Interface",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-INT-005",
+                "title": "Sensor Integration",
+                "description": "The system shall interface with wheel speed sensors sampling at minimum 100Hz per wheel",
+                "category": "Interface",
+                "priority": "High"
+              }
+            ]
+          },
+          {
+            "heading": "Sub-Functions",
+            "heading_id": "Python/FCTS-9201",
+            "outlineNumber": "2.2",
+            "workitems": [
+              {
+                "id": "BR-SAF-003",
+                "title": "Parking Brake Independence",
+                "description": "The parking brake shall operate independently of the main hydraulic brake system",
+                "category": "Safety",
+                "priority": "High"
+              },
+              {
+                "id": "BR-SAF-004",
+                "title": "Brake Fluid Level Monitoring",
+                "description": "The system shall continuously monitor brake fluid level and alert when level drops below 80% capacity",
+                "category": "Safety",
+                "priority": "High"
+              },
+              {
+                "id": "BR-SAF-005",
+                "title": "Temperature Monitoring",
+                "description": "The brake system shall monitor brake disc temperature and warn when temperature exceeds 700°C",
+                "category": "Safety",
+                "priority": "Medium"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Use Cases of the Function",
+        "heading_id": "Python/FCTS-9203",
+        "outlineNumber": "3",
+        "description": "Use cases and operational scenarios",
+        "subchapters": [
+          {
+            "heading": "Operation",
+            "heading_id": "Python/FCTS-9205",
+            "outlineNumber": "3.1",
+            "workitems": [
+              {
+                "id": "BR-ENV-001",
+                "title": "Operating Temperature Range",
+                "description": "The brake system shall operate normally in ambient temperatures from -40°C to +85°C",
+                "category": "Environmental",
+                "priority": "High"
+              },
+              {
+                "id": "BR-ENV-002",
+                "title": "Humidity Resistance",
+                "description": "The brake system components shall withstand 95% relative humidity without performance degradation",
+                "category": "Environmental",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-ENV-003",
+                "title": "Salt Spray Resistance",
+                "description": "Brake components shall resist corrosion after 500 hours of salt spray testing per ISO 9227",
+                "category": "Environmental",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-ENV-005",
+                "title": "Water Ingress Protection",
+                "description": "Electronic brake components shall meet IP67 protection rating against water and dust ingress",
+                "category": "Environmental",
+                "priority": "High"
+              },
+              {
+                "id": "BR-ENV-004",
+                "title": "Vibration Resistance",
+                "description": "The brake system shall withstand vibrations up to 30g acceleration without component failure",
+                "category": "Environmental",
+                "priority": "Medium"
+              }
+            ]
+          },
+          {
+            "heading": "Manufacturing",
+            "heading_id": "Python/FCTS-9208",
+            "outlineNumber": "3.2",
+            "workitems": [
+              {
+                "id": "BR-REG-004",
+                "title": "EMC Compliance",
+                "description": "The brake system shall comply with ECE R10 electromagnetic compatibility requirements",
+                "category": "Regulatory",
+                "priority": "High"
+              },
+              {
+                "id": "BR-REG-005",
+                "title": "Material Compliance",
+                "description": "All brake system materials shall comply with REACH and RoHS directives",
+                "category": "Regulatory",
+                "priority": "High"
+              }
+            ]
+          },
+          {
+            "heading": "Service & Maintenance",
+            "heading_id": "Python/FCTS-9210",
+            "outlineNumber": "3.4",
+            "workitems": [
+              {
+                "id": "BR-MAI-001",
+                "title": "Brake Pad Wear Indicator",
+                "description": "The system shall provide warning when brake pad thickness reaches 3mm remaining material",
+                "category": "Maintenance",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-MAI-002",
+                "title": "Service Interval",
+                "description": "The brake system shall require scheduled maintenance no more frequently than every 30,000km",
+                "category": "Maintenance",
+                "priority": "Low"
+              },
+              {
+                "id": "BR-MAI-003",
+                "title": "Brake Fluid Replacement",
+                "description": "The system shall indicate brake fluid replacement requirement every 2 years or 40,000km",
+                "category": "Maintenance",
+                "priority": "Low"
+              },
+              {
+                "id": "BR-MAI-004",
+                "title": "Self-Diagnostic Capability",
+                "description": "The brake system shall perform self-diagnostics on startup and store last 50 fault codes",
+                "category": "Maintenance",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-MAI-005",
+                "title": "Component Accessibility",
+                "description": "All serviceable brake components shall be accessible without removing other vehicle systems",
+                "category": "Maintenance",
+                "priority": "Low"
+              },
+              {
+                "id": "BR-TEST-001",
+                "title": "Brake Performance Test",
+                "description": "The brake system shall pass all performance tests defined in ISO 21994 test procedures",
+                "category": "Testing",
+                "priority": "High"
+              },
+              {
+                "id": "BR-TEST-002",
+                "title": "Endurance Testing",
+                "description": "The brake system shall complete 200,000 brake applications without failure in bench testing",
+                "category": "Testing",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-TEST-003",
+                "title": "Environmental Testing",
+                "description": "The brake system shall pass all environmental tests per ISO 16750 automotive standards",
+                "category": "Testing",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-TEST-004",
+                "title": "HIL Testing Coverage",
+                "description": "Hardware-in-Loop testing shall cover 95% of brake system failure modes",
+                "category": "Testing",
+                "priority": "Medium"
+              },
+              {
+                "id": "BR-TEST-005",
+                "title": "Field Testing",
+                "description": "The brake system shall accumulate 100,000km of field testing without critical failures",
+                "category": "Testing",
+                "priority": "High"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "heading": "Functional Safety Concept",
+        "heading_id": "Python/FCTS-9212",
+        "outlineNumber": "4",
+        "description": "Functional safety requirements and architecture",
+        "subchapters": [
+          {
+            "heading": "Functional Safety Requirements",
+            "heading_id": "Python/FCTS-9214",
+            "outlineNumber": "4.1",
+            "workitems": [
+              {
+                "id": "BR-SAF-001",
+                "title": "Dual Circuit Design",
+                "description": "The brake system shall implement independent dual hydraulic circuits to ensure 50% braking capacity in case of single circuit failure",
+                "category": "Safety",
+                "priority": "Critical"
+              },
+              {
+                "id": "BR-SAF-002",
+                "title": "Brake Failure Warning",
+                "description": "The system shall provide visual and audible warning within 500ms of detecting brake system failure or degradation",
+                "category": "Safety",
+                "priority": "Critical"
+              },
+              {
+                "id": "BR-REG-001",
+                "title": "ECE R13 Compliance",
+                "description": "The brake system shall comply with ECE Regulation 13 for brake performance requirements",
+                "category": "Regulatory",
+                "priority": "Critical"
+              },
+              {
+                "id": "BR-REG-002",
+                "title": "FMVSS 135 Compliance",
+                "description": "The brake system shall meet FMVSS 135 requirements for passenger vehicle brake systems",
+                "category": "Regulatory",
+                "priority": "Critical"
+              },
+              {
+                "id": "BR-REG-003",
+                "title": "ISO 26262 Compliance",
+                "description": "Electronic brake control systems shall be developed according to ISO 26262 ASIL-D requirements",
+                "category": "Regulatory",
+                "priority": "Critical"
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+}

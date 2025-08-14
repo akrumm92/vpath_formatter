@@ -1,0 +1,108 @@
+[
+  {
+    "type": "requirement",
+    "title": "Proto-Server Implementation",
+    "description": {
+      "type": "text/html",
+      "value": "<p>Implement Proto-Server with 1:1 mapping of Polarion API functions to MCP protocol.</p><p><strong>Key Features:</strong></p><ul><li>Timeout management</li><li>Error handling</li><li>Call counting</li><li>State management</li></ul>"
+    },
+    "status": "draft",
+    "severity": "must_be",
+    "priority": "95.0",
+    "assignee": {
+      "id": "admin"
+    },
+    "categories": ["technical", "architecture"],
+    "custom_fields": {
+      "component": "proto-server",
+      "validationStatus": "production_validated"
+    },
+    "module_id": "Python/Component_Layer/Component_Specification",
+    "outlineNumber": "3.2.1.1"
+  },
+  {
+    "type": "requirement",
+    "title": "Composite-Server Business Logic",
+    "description": {
+      "type": "text/html",
+      "value": "<p>Implement Composite-Server for higher-level business operations.</p><h4>Operations to implement:</h4><ul><li>create_work_item_with_links</li><li>bulk_update_work_items</li><li>create_parent_child_hierarchy</li><li>analyze_document_content</li></ul>"
+    },
+    "status": "draft",
+    "severity": "must_be",
+    "priority": "85.0",
+    "assignee": {
+      "id": "admin"
+    },
+    "categories": ["technical", "business-logic"],
+    "custom_fields": {
+      "component": "composite-server",
+      "validationStatus": "in_development"
+    },
+    "module_id": "Python/Component_Layer/Component_Specification",
+    "outlineNumber": "3.2.1.2"
+  },
+  {
+    "type": "testcase",
+    "title": "Test MCP Server Integration",
+    "description": {
+      "type": "text/html",
+      "value": "<h3>Test Objective</h3><p>Verify that the MCP server correctly integrates all validated Polarion API methods.</p><h3>Test Steps</h3><ol><li>Start Mock Server on port 5001</li><li>Start MCP Server with validated modules</li><li>Execute create_work_item via MCP</li><li>Execute link_work_items via MCP</li><li>Verify document discovery works</li></ol><h3>Expected Results</h3><ul><li>All validated methods accessible via MCP protocol</li><li>Proper error handling and timeouts</li><li>Call counting works correctly</li></ul>"
+    },
+    "status": "draft",
+    "severity": "must_have",
+    "priority": "80.0",
+    "assignee": {
+      "id": "tester"
+    },
+    "categories": ["test", "integration"],
+    "custom_fields": {
+      "testType": "integration",
+      "automationStatus": "automated",
+      "testLevel": "system"
+    },
+    "module_id": "Python/Component_Layer/Component_Specification",
+    "outlineNumber": "3.2.1.3"
+  },
+  {
+    "type": "task",
+    "title": "Configure Claude Desktop for MCP Server",
+    "description": {
+      "type": "text/html",
+      "value": "<p>Configure Claude Desktop to use the validated Polarion MCP server.</p><h4>Configuration:</h4><pre><code>{\n  \"mcpServers\": {\n    \"polarion\": {\n      \"command\": \"python\",\n      \"args\": [\"polarion_mcp_server_validated.py\"],\n      \"env\": {\n        \"POLARION_BASE_URL\": \"http://localhost:5001\"\n      }\n    }\n  }\n}</code></pre>"
+    },
+    "status": "open",
+    "priority": "70.0",
+    "assignee": {
+      "id": "admin"
+    },
+    "categories": ["configuration", "deployment"],
+    "custom_fields": {
+      "taskType": "configuration",
+      "environment": "development"
+    },
+    "module_id": "Python/Component_Layer/Component_Specification",
+    "outlineNumber": "3.2.1.4"
+  },
+  {
+    "type": "defect",
+    "title": "Fix Import Paths in Proto-Server",
+    "description": {
+      "type": "text/html",
+      "value": "<p><strong>Issue:</strong> Import paths in proto-server not correctly resolving polarion_api module.</p><p><strong>Root Cause:</strong> sys.path not including correct parent directory.</p><p><strong>Solution:</strong> Add proper path manipulation in proto_mcp_validated.py</p><pre><code>sys.path.insert(0, str(Path(__file__).parent))</code></pre>"
+    },
+    "status": "resolved",
+    "severity": "major",
+    "priority": "100.0",
+    "resolution": "fixed",
+    "assignee": {
+      "id": "developer"
+    },
+    "categories": ["bug", "import-error"],
+    "custom_fields": {
+      "bugType": "code",
+      "fixVersion": "1.0.1"
+    },
+    "module_id": "Python/Component_Layer/Component_Specification",
+    "outlineNumber": "3.2.1.5"
+  }
+]

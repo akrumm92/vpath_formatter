@@ -1,0 +1,96 @@
+{
+  "work_item": {
+    "type": "requirement",
+    "title": "Parent Requirement - MCP Framework Integration {timestamp}",
+    "description": {
+      "type": "text/html",
+      "value": "<h2>MCP Framework Integration Master Requirement</h2><p>This is the parent requirement for all MCP integration tasks created at {timestamp}.</p>"
+    },
+    "status": "draft",
+    "severity": "must_have",
+    "priority": "high",
+    "relationships": {
+      "module": {
+        "data": {
+          "type": "documents",
+          "id": "Python/_default/Functional Concept - Template"
+        }
+      }
+    }
+  },
+  "links": [
+    {
+      "target_id": "Python/PYTH-9397",
+      "role": "has_parent",
+      "description": "Links to main document header"
+    },
+    {
+      "target_id": "Python/PYTH-1234",
+      "role": "depends_on",
+      "description": "Depends on API validation completion"
+    },
+    {
+      "target_id": "Python/PYTH-5678",
+      "role": "relates_to",
+      "description": "Related to Mock Server implementation"
+    }
+  ],
+  "children": [
+    {
+      "type": "requirement",
+      "title": "Child 1: Proto-Server Development {timestamp}",
+      "description": {
+        "type": "text/html",
+        "value": "<p>Develop Proto-Server component with validated methods at {timestamp}.</p>"
+      },
+      "status": "draft",
+      "severity": "must_have",
+      "priority": "high",
+      "relationships": {
+        "module": {
+          "data": {
+            "type": "documents",
+            "id": "Python/_default/Functional Concept - Template"
+          }
+        }
+      }
+    },
+    {
+      "type": "requirement",
+      "title": "Child 2: Composite-Server Development {timestamp}",
+      "description": {
+        "type": "text/html",
+        "value": "<p>Develop Composite-Server with business logic operations at {timestamp}.</p>"
+      },
+      "status": "draft",
+      "severity": "must_have",
+      "priority": "high",
+      "relationships": {
+        "module": {
+          "data": {
+            "type": "documents",
+            "id": "Python/_default/Functional Concept - Template"
+          }
+        }
+      }
+    },
+    {
+      "type": "testcase",
+      "title": "Child 3: Integration Tests {timestamp}",
+      "description": {
+        "type": "text/html",
+        "value": "<p>Complete integration test suite for MCP server at {timestamp}.</p>"
+      },
+      "status": "draft",
+      "priority": "medium",
+      "relationships": {
+        "module": {
+          "data": {
+            "type": "documents",
+            "id": "Python/_default/Functional Concept - Template"
+          }
+        }
+      }
+    }
+  ]
+}

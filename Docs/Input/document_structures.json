@@ -1,0 +1,56 @@
+{
+  "project": "Python",
+  "timestamp": "2025-08-10T23:40:57.511324",
+  "document_structures": [
+    {
+      "id": "Python/Component Layer/Component Requirement Specification",
+      "space": "Component Layer",
+      "name": "Component Requirement Specification",
+      "structure": {
+        "headers": [],
+        "total_headers": 0,
+        "structure_summary": []
+      }
+    },
+    {
+      "id": "Python/Domain Layer/Software Requirement Specification",
+      "space": "Domain Layer",
+      "name": "Software Requirement Specification",
+      "structure": {
+        "headers": [],
+        "total_headers": 0,
+        "structure_summary": []
+      }
+    },
+    {
+      "id": "Python/Functional Layer/Functional Concept",
+      "space": "Functional Layer",
+      "name": "Functional Concept",
+      "structure": {
+        "headers": [],
+        "total_headers": 0,
+        "structure_summary": []
+      }
+    },
+    {
+      "id": "Python/Product Layer/Product Requirements Specification",
+      "space": "Product Layer",
+      "name": "Product Requirements Specification",
+      "structure": {
+        "headers": [],
+        "total_headers": 0,
+        "structure_summary": []
+      }
+    },
+    {
+      "id": "Python/_default/Functional Concept - Template",
+      "space": "_default",
+      "name": "Functional Concept - Template",
+      "structure": {
+        "headers": [],
+        "total_headers": 0,
+        "structure_summary": []
+      }
+    }
+  ]
+}

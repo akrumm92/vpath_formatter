@@ -1,0 +1,24 @@
+# Requirements for Brake System Requirements to Polarion Converter
+# Python 3.8+
+
+# Core dependencies - using only standard library
+# No external packages required for basic functionality
+
+# Optional: For enhanced JSON handling and validation
+jsonschema>=4.17.0
+
+# Optional: For pretty printing and debugging
+tabulate>=0.9.0
+
+# Optional: For colored terminal output
+colorama>=0.4.6
+
+# Development dependencies
+pytest>=7.4.0
+pytest-cov>=4.1.0
+black>=23.7.0
+flake8>=6.0.0
+mypy>=1.4.0
+
+# Documentation
+pydocstyle>=6.3.0
