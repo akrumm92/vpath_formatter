@@ -1,0 +1,527 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://example.com/brake-system-requirements-polarion-integrated.schema.json",
+  "title": "Brake System Requirements with Polarion Data Model Integration",
+  "description": "Schema for structured brake system requirements with Polarion workitem types and categories",
+  "type": "object",
+  "required": ["document"],
+  "properties": {
+    "document": {
+      "type": "object",
+      "description": "The main document container",
+      "required": ["id", "title", "project", "space", "type", "version", "created", "chapters"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique identifier for the document in Polarion",
+          "pattern": "^[A-Za-z]+/.+",
+          "examples": ["Python/_default/Functional Concept - Brake System"]
+        },
+        "title": {
+          "type": "string",
+          "description": "Document title",
+          "minLength": 1
+        },
+        "project": {
+          "type": "string",
+          "description": "Project identifier",
+          "minLength": 1,
+          "examples": ["Python"]
+        },
+        "space": {
+          "type": "string",
+          "description": "Document space in Polarion",
+          "minLength": 1,
+          "examples": ["_default", "Functional Layer", "System Layer"]
+        },
+        "type": {
+          "type": "string",
+          "description": "Document type",
+          "examples": ["Functional Concept", "Technical Specification", "Test Plan"]
+        },
+        "version": {
+          "type": "string",
+          "description": "Document version",
+          "pattern": "^\\d+\\.\\d+(\\.\\d+)?$",
+          "examples": ["1.0", "2.1.3"]
+        },
+        "created": {
+          "type": "string",
+          "description": "Creation date in ISO format",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$",
+          "examples": ["2025-08-14"]
+        },
+        "chapters": {
+          "type": "array",
+          "description": "Top-level chapters of the document",
+          "minItems": 1,
+          "items": {
+            "$ref": "#/definitions/chapter"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "polarionWorkitemType": {
+      "type": "string",
+      "description": "Polarion workitem type from workitem-type-enum.xml",
+      "enum": [
+        "information",
+        "productrequirement",
+        "featureonepager",
+        "userstory",
+        "technicalrequirement",
+        "usecase",
+        "safetygoal",
+        "systemsafestate",
+        "securitygoal",
+        "functionalartefact",
+        "sosrequirement",
+        "sosarchitectureartefact",
+        "machinerequirement",
+        "machinearchitectureartefact",
+        "integratedsystemrequirement",
+        "integratedsystemarchitectureartefact",
+        "systemrequirement",
+        "systemarchitectureartefact",
+        "componentrequirement",
+        "componentarchitectureartefact",
+        "swrequirement",
+        "swarchitectureartefact",
+        "hwrequirement",
+        "hwarchitectureartefact",
+        "mechrequirement",
+        "mecharchitectureartefact"
+      ]
+    },
+    "polarionRequirementCategory": {
+      "type": "string",
+      "description": "Polarion requirement category from requirementcategory-enum.xml",
+      "enum": [
+        "functional",
+        "performance",
+        "quality",
+        "security",
+        "support",
+        "usability"
+      ]
+    },
+    "chapter": {
+      "type": "object",
+      "description": "A chapter or section in the document",
+      "required": ["heading", "heading_id"],
+      "properties": {
+        "heading": {
+          "type": "string",
+          "description": "Chapter heading text",
+          "minLength": 1,
+          "examples": ["Introduction", "Functional Architecture", "Use Cases of the Function"]
+        },
+        "heading_id": {
+          "type": "string",
+          "description": "Polarion work item ID for this heading",
+          "pattern": "^[A-Za-z]+/[A-Z]+-\\d+$",
+          "examples": ["Python/FCTS-9184", "Python/FCTS-9198"]
+        },
+        "outlineNumber": {
+          "type": "string",
+          "description": "Hierarchical outline number",
+          "pattern": "^\\d+(\\.\\d+)*$",
+          "examples": ["1", "2.1", "3.4.2"]
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description of the chapter content"
+        },
+        "workitems": {
+          "type": "array",
+          "description": "Work items directly under this chapter",
+          "items": {
+            "$ref": "#/definitions/workitem"
+          }
+        },
+        "subchapters": {
+          "type": "array",
+          "description": "Subchapters nested under this chapter",
+          "items": {
+            "$ref": "#/definitions/subchapter"
+          }
+        }
+      }
+    },
+    "subchapter": {
+      "type": "object",
+      "description": "A subchapter nested within a chapter",
+      "required": ["heading", "heading_id"],
+      "properties": {
+        "heading": {
+          "type": "string",
+          "description": "Subchapter heading text",
+          "minLength": 1,
+          "examples": ["Summary of the Function", "Context & External Interfaces of the Function"]
+        },
+        "heading_id": {
+          "type": "string",
+          "description": "Polarion work item ID for this subchapter heading",
+          "pattern": "^[A-Za-z]+/[A-Z]+-\\d+$",
+          "examples": ["Python/FCTS-9189", "Python/FCTS-9199"]
+        },
+        "outlineNumber": {
+          "type": "string",
+          "description": "Hierarchical outline number",
+          "pattern": "^\\d+(\\.\\d+)*$",
+          "examples": ["1.1", "2.1", "3.4"]
+        },
+        "description": {
+          "type": "string",
+          "description": "Optional description of the subchapter content"
+        },
+        "workitems": {
+          "type": "array",
+          "description": "Work items under this subchapter",
+          "items": {
+            "$ref": "#/definitions/workitem"
+          }
+        }
+      }
+    },
+    "workitem": {
+      "type": "object",
+      "description": "A Polarion work item with integrated data model",
+      "required": ["id", "title", "description", "type", "category", "priority", "status"],
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "Unique work item identifier",
+          "pattern": "^[A-Za-z0-9-]+$",
+          "examples": ["BR-FUN-001", "BR-SAF-002", "BR-TEST-003", "FCTS-9189"]
+        },
+        "title": {
+          "type": "string",
+          "description": "Short title of the work item",
+          "minLength": 1,
+          "maxLength": 200,
+          "examples": ["Primary Brake Activation", "ABS Activation", "Summary of the Function"]
+        },
+        "description": {
+          "oneOf": [
+            {
+              "type": "string",
+              "description": "Plain text description of the work item",
+              "minLength": 1
+            },
+            {
+              "type": "object",
+              "description": "Rich text description with type specification",
+              "required": ["type", "value"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["text/html", "text/plain", "text/markdown"],
+                  "default": "text/html"
+                },
+                "value": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              }
+            }
+          ]
+        },
+        "type": {
+          "$ref": "#/definitions/polarionWorkitemType"
+        },
+        "category": {
+          "$ref": "#/definitions/polarionRequirementCategory"
+        },
+        "priority": {
+          "type": "string",
+          "description": "Work item priority level",
+          "enum": ["critical", "high", "medium", "low"]
+        },
+        "status": {
+          "type": "string",
+          "description": "Work item status",
+          "enum": ["draft", "in_progress", "in_review", "approved", "implemented", "verified", "done", "rejected"],
+          "default": "draft"
+        },
+        "severity": {
+          "type": "string",
+          "description": "Requirement severity/importance level",
+          "enum": ["safety_critical", "must_have", "should_have", "could_have", "nice_to_have"]
+        },
+        "verification_method": {
+          "type": "string",
+          "description": "Optional method for verifying the requirement",
+          "enum": ["Test", "Analysis", "Inspection", "Demonstration"]
+        },
+        "acceptance_criteria": {
+          "type": "string",
+          "description": "Optional specific criteria for requirement acceptance"
+        },
+        "rationale": {
+          "type": "string",
+          "description": "Optional rationale for the requirement"
+        },
+        "links": {
+          "type": "array",
+          "description": "Links to other work items with relationship roles",
+          "items": {
+            "$ref": "#/definitions/link"
+          }
+        },
+        "relationships": {
+          "$ref": "#/definitions/relationships"
+        },
+        "dependencies": {
+          "type": "array",
+          "description": "Optional list of requirement IDs this requirement depends on",
+          "items": {
+            "type": "string"
+          }
+        },
+        "tags": {
+          "type": "array",
+          "description": "Optional tags for categorization",
+          "items": {
+            "type": "string"
+          }
+        },
+        "custom_fields": {
+          "type": "object",
+          "description": "Optional custom fields",
+          "additionalProperties": true
+        },
+        "due_date": {
+          "type": "string",
+          "description": "Optional due date in ISO format",
+          "pattern": "^\\d{4}-\\d{2}-\\d{2}$"
+        },
+        "estimated_time": {
+          "type": "number",
+          "description": "Optional estimated time in hours",
+          "minimum": 0
+        }
+      }
+    },
+    "link": {
+      "type": "object",
+      "description": "Link to another work item with relationship role",
+      "required": ["target_id", "role"],
+      "properties": {
+        "target_id": {
+          "type": "string",
+          "description": "Target work item ID",
+          "pattern": "^[A-Za-z]+/[A-Z]+-\\d+$",
+          "examples": ["Python/FCTS-9189", "Python/PYTH-9397", "Python/FCTS-9214"]
+        },
+        "role": {
+          "type": "string",
+          "description": "Type of relationship",
+          "enum": [
+            "has_parent",
+            "has_child",
+            "depends_on",
+            "blocks",
+            "relates_to",
+            "verifies",
+            "verified_by",
+            "duplicates",
+            "refines",
+            "refined_by",
+            "implements",
+            "implemented_by",
+            "tests",
+            "tested_by"
+          ]
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the link",
+          "examples": [
+            "Links to 1.3 Summary of the Function",
+            "Links to main document header",
+            "Related to Functional Safety Requirements"
+          ]
+        },
+        "suspect": {
+          "type": "boolean",
+          "description": "Optional flag indicating if the link is suspect/needs review",
+          "default": false
+        }
+      }
+    },
+    "relationships": {
+      "type": "object",
+      "description": "Relationships to modules/documents",
+      "required": ["module"],
+      "properties": {
+        "module": {
+          "type": "object",
+          "description": "Module/document this work item belongs to",
+          "required": ["data"],
+          "properties": {
+            "data": {
+              "type": "object",
+              "required": ["type", "id"],
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["documents", "modules"],
+                  "default": "documents"
+                },
+                "id": {
+                  "type": "string",
+                  "description": "Document/module identifier in Polarion",
+                  "pattern": "^[A-Za-z]+/.+",
+                  "examples": ["Python/_default/Functional Concept - Brake System"]
+                }
+              }
+            }
+          }
+        },
+        "assignee": {
+          "type": "object",
+          "description": "Optional assignee for the work item",
+          "properties": {
+            "data": {
+              "type": "object",
+              "properties": {
+                "type": {
+                  "type": "string",
+                  "enum": ["users"]
+                },
+                "id": {
+                  "type": "string",
+                  "description": "User ID"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "examples": [
+    {
+      "document": {
+        "id": "Python/_default/Functional Concept - Brake System",
+        "title": "Functional Concept - Brake System",
+        "project": "Python",
+        "space": "_default",
+        "type": "Functional Concept",
+        "version": "1.0",
+        "created": "2025-08-14",
+        "chapters": [
+          {
+            "heading": "Introduction",
+            "heading_id": "Python/FCTS-9184",
+            "outlineNumber": "1",
+            "description": "Introduction to the brake system functional concept",
+            "subchapters": [
+              {
+                "heading": "Summary of the Function",
+                "heading_id": "Python/FCTS-9189",
+                "outlineNumber": "1.3",
+                "workitems": [
+                  {
+                    "id": "BR-FUN-001",
+                    "title": "Primary Brake Activation",
+                    "description": {
+                      "type": "text/html",
+                      "value": "<p>The brake system shall activate within 100ms when the brake pedal is pressed with a force greater than 20N</p>"
+                    },
+                    "type": "systemrequirement",
+                    "category": "functional",
+                    "priority": "high",
+                    "status": "draft",
+                    "severity": "safety_critical",
+                    "links": [
+                      {
+                        "target_id": "Python/FCTS-9189",
+                        "role": "has_parent",
+                        "description": "Links to 1.3 Summary of the Function"
+                      }
+                    ],
+                    "relationships": {
+                      "module": {
+                        "data": {
+                          "type": "documents",
+                          "id": "Python/_default/Functional Concept - Brake System"
+                        }
+                      }
+                    }
+                  },
+                  {
+                    "id": "BR-FUN-002",
+                    "title": "ABS Activation Threshold",
+                    "description": "The Anti-lock Braking System shall activate when wheel slip exceeds 15% during braking",
+                    "type": "systemrequirement",
+                    "category": "functional",
+                    "priority": "critical",
+                    "status": "approved",
+                    "severity": "safety_critical",
+                    "verification_method": "Test",
+                    "links": [
+                      {
+                        "target_id": "Python/FCTS-9189",
+                        "role": "has_parent"
+                      },
+                      {
+                        "target_id": "Python/SAF-001",
+                        "role": "relates_to",
+                        "description": "Related to safety requirements"
+                      }
+                    ],
+                    "relationships": {
+                      "module": {
+                        "data": {
+                          "type": "documents",
+                          "id": "Python/_default/Functional Concept - Brake System"
+                        }
+                      }
+                    }
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "heading": "Safety Requirements",
+            "heading_id": "Python/FCTS-9200",
+            "outlineNumber": "2",
+            "workitems": [
+              {
+                "id": "BR-SAF-001",
+                "title": "Emergency Brake Performance",
+                "description": "The brake system shall provide minimum deceleration of 8 m/s² in emergency braking situations",
+                "type": "safetygoal",
+                "category": "security",
+                "priority": "critical",
+                "status": "approved",
+                "severity": "safety_critical",
+                "verification_method": "Test",
+                "acceptance_criteria": "Measured deceleration >= 8 m/s² on dry asphalt at 100 km/h initial speed",
+                "links": [
+                  {
+                    "target_id": "Python/FCTS-9200",
+                    "role": "has_parent"
+                  }
+                ],
+                "relationships": {
+                  "module": {
+                    "data": {
+                      "type": "documents",
+                      "id": "Python/_default/Functional Concept - Brake System"
+                    }
+                  }
+                }
+              }
+            ]
+          }
+        ]
+      }
+    }
+  ]
+}

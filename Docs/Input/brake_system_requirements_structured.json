@@ -10,13 +10,13 @@
     "chapters": [
       {
         "heading": "Introduction",
-        "heading_id": "Python/FCTS-9184",
+        "heading_id": "Python/PYTH-9365",
         "outlineNumber": "1",
         "description": "Introduction to the brake system functional concept",
         "subchapters": [
           {
             "heading": "Summary of the Function",
-            "heading_id": "Python/FCTS-9189",
+            "heading_id": "Python/PYTH-9370",
             "outlineNumber": "1.3",
             "workitems": [
               {
@@ -44,7 +44,7 @@
           },
           {
             "heading": "Intended Use",
-            "heading_id": "Python/FCTS-9192",
+            "heading_id": "Python/PYTH-9373",
             "outlineNumber": "1.4.1",
             "workitems": [
               {
@@ -65,7 +65,7 @@
           },
           {
             "heading": "Assumptions",
-            "heading_id": "Python/FCTS-9194",
+            "heading_id": "Python/PYTH-9374",
             "outlineNumber": "1.4.2",
             "workitems": [
               {
@@ -109,13 +109,13 @@
       },
       {
         "heading": "Functional Architecture",
-        "heading_id": "Python/FCTS-9198",
+        "heading_id": "Python/PYTH-9378",
         "outlineNumber": "2",
         "description": "Functional architecture of the brake system",
         "subchapters": [
           {
             "heading": "Context & External Interfaces of the Function",
-            "heading_id": "Python/FCTS-9199",
+            "heading_id": "Python/PYTH-9379",
             "outlineNumber": "2.1",
             "workitems": [
               {
@@ -157,7 +157,7 @@
           },
           {
             "heading": "Sub-Functions",
-            "heading_id": "Python/FCTS-9201",
+            "heading_id": "Python/PYTH-9381",
             "outlineNumber": "2.2",
             "workitems": [
               {
@@ -187,13 +187,13 @@
       },
       {
         "heading": "Use Cases of the Function",
-        "heading_id": "Python/FCTS-9203",
+        "heading_id": "Python/PYTH-9386",
         "outlineNumber": "3",
         "description": "Use cases and operational scenarios",
         "subchapters": [
           {
             "heading": "Operation",
-            "heading_id": "Python/FCTS-9205",
+            "heading_id": "Python/PYTH-9388",
             "outlineNumber": "3.1",
             "workitems": [
               {
@@ -235,7 +235,7 @@
           },
           {
             "heading": "Manufacturing",
-            "heading_id": "Python/FCTS-9208",
+            "heading_id": "Python/PYTH-9390",
             "outlineNumber": "3.2",
             "workitems": [
               {
@@ -256,7 +256,7 @@
           },
           {
             "heading": "Service & Maintenance",
-            "heading_id": "Python/FCTS-9210",
+            "heading_id": "Python/PYTH-9392",
             "outlineNumber": "3.4",
             "workitems": [
               {
@@ -335,13 +335,13 @@
       },
       {
         "heading": "Functional Safety Concept",
-        "heading_id": "Python/FCTS-9212",
+        "heading_id": "Python/PYTH-9394",
         "outlineNumber": "4",
         "description": "Functional safety requirements and architecture",
         "subchapters": [
           {
-            "heading": "Functional Safety Requirements",
-            "heading_id": "Python/FCTS-9214",
+            "heading": "Risk 1",
+            "heading_id": "Python/PYTH-9397",
             "outlineNumber": "4.1",
             "workitems": [
               {

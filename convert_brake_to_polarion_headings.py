@@ -12,9 +12,10 @@ from pathlib import Path
 from typing import Dict, List, Any, Optional, Tuple
 
 class PolarionHeadingConverter:
-    def __init__(self):
+    def __init__(self, document_id: Optional[str] = None):
         self.timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        self.document_id = "Python/_default/Functional Concept - Template"
+        # Allow overriding the document ID via CLI; keep a sensible default
+        self.document_id = document_id or "Python/_default/Functional Concept - Template"
         self.work_items = []
         
     def load_brake_requirements(self, file_path: str) -> Dict:
@@ -95,24 +96,9 @@ class PolarionHeadingConverter:
             "children": []  # Empty children array as per template
         }
         
-        # Add additional links based on category if needed
-        category = requirement.get("category", "")
-        
-        # Add safety-related links
-        if category == "Safety" and parent_heading_id != "Python/FCTS-9214":
-            workitem["links"].append({
-                "target_id": "Python/FCTS-9214",
-                "role": "relates_to",
-                "description": "Related to Functional Safety Requirements"
-            })
-        
-        # Add testing verification links
-        elif category == "Testing" and parent_heading_id != "Python/FCTS-9210":
-            workitem["links"].append({
-                "target_id": "Python/FCTS-9210",
-                "role": "verifies",
-                "description": "Verifies Service & Maintenance requirements"
-            })
+        # Note: Do not add any hardcoded cross-links to fixed heading IDs.
+        # The only required relationship is the has_parent link to the heading
+        # provided by the structured input/discovered documents mapping.
         
         return workitem
     
@@ -272,27 +258,56 @@ class PolarionHeadingConverter:
 
 def main():
     """Main entry point"""
-    
-    # File paths
-    brake_requirements = "Docs/Input/brake_system_requirements_structured.json"
-    discovered_docs = "Docs/Input/discovered_documents.json"
-    output_file = "Docs/Output/brake_requirements_polarion_headings.json"
-    
+    import argparse
+
+    parser = argparse.ArgumentParser(
+        description="Convert structured brake requirements to Polarion items linked to existing headings"
+    )
+    parser.add_argument(
+        "-i",
+        "--input",
+        default="Docs/Input/brake_system_requirements_structured.json",
+        help="Path to structured brake requirements JSON",
+    )
+    parser.add_argument(
+        "-d",
+        "--discovered",
+        default="Docs/Input/discovered_documents.json",
+        help="Path to discovered documents JSON (provides heading map)",
+    )
+    parser.add_argument(
+        "-o",
+        "--output",
+        default="Docs/Output/brake_requirements_polarion_headings.json",
+        help="Path to write Polarion-compatible output JSON",
+    )
+    parser.add_argument(
+        "--document-id",
+        default=None,
+        help="Override Polarion document/module ID to associate items with",
+    )
+
+    args = parser.parse_args()
+
+    brake_requirements = args.input
+    discovered_docs = args.discovered
+    output_file = args.output
+
     # Check if input files exist
     if not Path(brake_requirements).exists():
         print(f"❌ Input file not found: {brake_requirements}")
         sys.exit(1)
-    
+
     if not Path(discovered_docs).exists():
         print(f"❌ Discovered documents file not found: {discovered_docs}")
         sys.exit(1)
-    
+
     # Create output directory if needed
     output_dir = Path(output_file).parent
     output_dir.mkdir(parents=True, exist_ok=True)
-    
+
     # Create converter and run
-    converter = PolarionHeadingConverter()
+    converter = PolarionHeadingConverter(document_id=args.document_id)
     converter.run(brake_requirements, discovered_docs, output_file)
 
 if __name__ == "__main__":
